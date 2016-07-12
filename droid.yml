@@ -1,0 +1,48 @@
+project:
+    name: "droid/nfs-server"
+    description: "Install and configure an NFS server and shares"
+
+variables:
+    module_nfs_server:
+        exports: []
+            # - path: /srv
+            #   common_opts: rw,sync
+            #   clients:
+            #       - name: app.example.com
+            #       - {name: backup.example.com, opts: ro}
+    module_nfs_server_shares: []
+        # - path: /srv
+        #   mode: 0777
+
+tasks:
+    -
+      name: "Update packages"
+      command: "apt-get:update"
+    -
+      name: "Install nfs-server package"
+      command: "apt-get:install"
+      arguments:
+          package: "nfs-server"
+    -
+      name: "Make shared directories"
+      command: "fs:mkdir"
+      arguments:
+          directory: "{{{ item.path }}}"
+          mode: "{{{ item.mode }}}"
+      with_items: module_nfs_server_shares
+    -
+      name: "Install exports configuration"
+      command: "fs:copy"
+      arguments:
+          src: "!{{ mod_path }}/assets/exports.template"
+          dest: "/etc/exports"
+    -
+      name: "Stop NFS Kernel Service"
+      command: "service:stop"
+      arguments:
+          name: "nfs-kernel-server"
+    -
+      name: "Start NFS Kernel Service"
+      command: "service:start"
+      arguments:
+          name: "nfs-kernel-server"
