@@ -1,0 +1,3 @@
+options lockd
+{{~ #if host.variables.lockd_opts.port}} nlm_udpport={{{ host.variables.lockd_opts.port }}} nlm_tcpport={{{ host.variables.lockd_opts.port }}}
+{{~ else}} nlm_udpport=4045 nlm_tcpport=4045{{/if}}
