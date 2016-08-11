@@ -32,15 +32,20 @@ Configuration files managed by the module will be overwritten each time the
 module is run.
 
 1. The following existing configuration files are overwritten:-
-   - /etc/hosts.allow
-   - /etc/hosts.deny
+
+    - /etc/hosts.allow
+    - /etc/hosts.deny
+
 2. The following configuration files are installed by their respective platform
    packages during the execution of the module and then overwritten:-
-   - /etc/exports
-   - /etc/default/nfs-common
-   - /etc/default/nfs-kernel-server
+
+    - /etc/exports
+    - /etc/default/nfs-common
+    - /etc/default/nfs-kernel-server
+
 3. The following new configuration files are written:-
-   - /etc/modprobe.d/lockd.conf
+
+    - /etc/modprobe.d/lockd.conf
 
 
 ## Information required by the module
