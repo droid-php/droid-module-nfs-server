@@ -74,17 +74,5 @@ tasks:
           src: "!{{ mod_path }}/assets/etc/exports.template"
           dest: "/etc/exports"
     -
-      name: "Stop NFS Kernel Service"
-      command: "service:stop"
-      arguments:
-          name: "nfs-kernel-server"
-    -
-      name: "Restart NFS Common Service"
-      command: "service:restart"
-      arguments:
-          name: "nfs-common"
-    -
-      name: "Start NFS Kernel Service"
-      command: "service:start"
-      arguments:
-          name: "nfs-kernel-server"
+      name: "Reboot to apply kernel options"
+      command: "os:reboot"
