@@ -61,7 +61,7 @@ tasks:
           mode: "{{{ item.mode }}}"
       with_items: module_nfs_server_shares
     -
-      name: "Chane file mode of shared directories"
+      name: "Change file mode of shared directories"
       command: "fs:chmod"
       arguments:
           filename: "{{{ item.path }}}"
