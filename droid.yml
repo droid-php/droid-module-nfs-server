@@ -33,6 +33,7 @@ tasks:
       arguments:
           src: "!{{ mod_path }}/assets/etc/modprobe.d/lockd.conf.template"
           dest: "/etc/modprobe.d/lockd.conf"
+      trigger: "Reboot"
     -
       name: "Update packages"
       command: "apt-get:update"
@@ -73,6 +74,7 @@ tasks:
       arguments:
           src: "!{{ mod_path }}/assets/etc/exports.template"
           dest: "/etc/exports"
+triggers:
     -
-      name: "Reboot to apply kernel options"
+      name: "Reboot"
       command: "os:reboot"
