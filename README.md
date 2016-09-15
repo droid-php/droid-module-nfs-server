@@ -5,11 +5,10 @@ please see [droidphp.com](http://droidphp.com).
 
 The steps involved are:-
 
-1. Update platform packages.
-2. Install the nfs-server package.
-3. Create directories to be shared.
-4. Write configuration files.
-5. Stop and then start the NFS Kernel and NFS Common services.
+1. Install the nfs-server package.
+2. Create directories to be shared.
+3. Write configuration files.
+4. Stop and then start the NFS Kernel and NFS Common services.
 
 
 ## Assumptions

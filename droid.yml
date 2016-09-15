@@ -35,9 +35,6 @@ tasks:
           dest: "/etc/modprobe.d/lockd.conf"
       trigger: "Reboot"
     -
-      name: "Update packages"
-      command: "apt-get:update"
-    -
       name: "Install nfs-server package"
       command: "apt-get:install"
       arguments:
