@@ -18,18 +18,21 @@ tasks:
     -
       name: "Install droid-managed /etc/hosts.deny configuration."
       command: "fs:copy"
+      sudo: true
       arguments:
           src: "!{{ mod_path }}/assets/etc/hosts.deny.template"
           dest: "/etc/hosts.deny"
     -
       name: "Install droid-managed /etc/hosts.allow configuration."
       command: "fs:copy"
+      sudo: true
       arguments:
           src: "!{{ mod_path }}/assets/etc/hosts.allow.template"
           dest: "/etc/hosts.allow"
     -
       name: "Install droid-managed /etc/modprobe.d/lockd.conf configuration."
       command: "fs:copy"
+      sudo: true
       arguments:
           src: "!{{ mod_path }}/assets/etc/modprobe.d/lockd.conf.template"
           dest: "/etc/modprobe.d/lockd.conf"
@@ -42,18 +45,21 @@ tasks:
     -
       name: "Install droid-managed /etc/default/nfs-common configuration."
       command: "fs:copy"
+      sudo: true
       arguments:
           src: "!{{ mod_path }}/assets/etc/default/nfs-common.template"
           dest: "/etc/default/nfs-common"
     -
       name: "Install droid-managed /etc/default/nfs-kernel-server configuration."
       command: "fs:copy"
+      sudo: true
       arguments:
           src: "!{{ mod_path }}/assets/etc/default/nfs-kernel-server.template"
           dest: "/etc/default/nfs-kernel-server"
     -
       name: "Make shared directories"
       command: "fs:mkdir"
+      sudo: true
       arguments:
           directory: "{{{ item.path }}}"
           mode: "{{{ item.mode }}}"
@@ -61,6 +67,7 @@ tasks:
     -
       name: "Change file mode of shared directories"
       command: "fs:chmod"
+      sudo: true
       arguments:
           filename: "{{{ item.path }}}"
           mode: "{{{ item.mode }}}"
@@ -68,6 +75,7 @@ tasks:
     -
       name: "Install exports configuration"
       command: "fs:copy"
+      sudo: true
       arguments:
           src: "!{{ mod_path }}/assets/etc/exports.template"
           dest: "/etc/exports"
@@ -75,3 +83,4 @@ triggers:
     -
       name: "Reboot"
       command: "os:reboot"
+      sudo: true
