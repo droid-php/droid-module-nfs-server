@@ -1,6 +1,4 @@
-project:
-    name: "droid/nfs-server"
-    description: "Install and configure an NFS server and shares"
+description: "Install and configure an NFS server and shares"
 
 variables:
     module_nfs_server:

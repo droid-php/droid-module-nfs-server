@@ -1,4 +1,4 @@
-# Droid Module: droid/nfs-server
+# Droid Module: nfs-server
 
 Install and configure an NFS server and shares. For more information on Droid,
 please see [droidphp.com](http://droidphp.com).
