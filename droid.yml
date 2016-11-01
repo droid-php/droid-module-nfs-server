@@ -1,6 +1,7 @@
 description: "Install and configure an NFS server and shares"
 
 variables:
+    use_legacy_templating: true
     module_nfs_server:
         exports: []
             # - path: /srv
